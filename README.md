@@ -1,24 +1,10 @@
-# README
+# Blue Bird
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### July 31, 2017 App Academy Cohort
 
-Things you may want to cover:
+![blue-bird](https://media.giphy.com/media/3oKIPmJonGimU9bI2s/giphy.gif)
 
-* Ruby version
+##### W3D3
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
++ Added bare bone migration files for Users, Chirps, and Likes
++ Added basic model validations, associations and custom validations for the above tables
