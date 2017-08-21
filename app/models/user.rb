@@ -16,4 +16,9 @@ class User < ApplicationRecord
   has_many :liked_chirps,
     through: :likes,
     source: :chirp
+
+  has_many :chirps,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Chirp
 end
