@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id       :integer          not null, primary key
+#  username :string           not null
+#  email    :string
+#
+
 class User < ApplicationRecord
   has_many :likes,
     primary_key: :id,
