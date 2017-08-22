@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :chirps, only: [:index]
   end
 
-  post "/search", to: "users#search"
+  post '/search', to: 'users#search'
 
-  resources :chirps
-  resources :likes
+  resources :chirps, except: [:new, :edit]
+  resources :likes, only: [:create, :destroy]
 end
