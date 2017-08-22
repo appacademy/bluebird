@@ -12,3 +12,7 @@
 ##### W4D1
 
 + Added routes and controllers for Users, Chirps, and Likes
+
+##### W4D2
+
++ Added views for Users and Chirps (delaying likes until auth)
