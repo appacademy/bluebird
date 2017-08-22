@@ -1,14 +1,14 @@
 class ChirpsController < ApplicationController
 
-  def edit
-    @chirp = Chirp.find(params[:id])
-    render :edit
+  def new
+    @chirp = Chirp.new
+    render :new
   end
 
   def create
     @chirp = Chirp.new(chirp_params)
     if @chirp.save
-      render json: @chirp
+      redirect_to chirp_url(@chirp)
     else
       render json: @chirp.errors.full_messages, status: 422
     end
@@ -30,6 +30,11 @@ class ChirpsController < ApplicationController
                 Chirp.all
               end
     render :index
+  end
+
+  def edit
+    @chirp = Chirp.find(params[:id])
+    render :edit
   end
 
   def update

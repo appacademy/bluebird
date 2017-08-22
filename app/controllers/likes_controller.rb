@@ -1,3 +1,6 @@
+# This class doesn't make a whole lot of sense unless there's a logged
+# in user. We're going to go ahead and skip the views for this for now.
+
 class LikesController < ApplicationController
   def create
     @like = Like.new(like_params)

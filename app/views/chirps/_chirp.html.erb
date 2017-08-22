@@ -1,3 +1,10 @@
-<%= chirp.body %>
-<%= link_to "Show Chirp", chirp_url(chirp) %>
-<%= button_to "Delete Chirp", chirp_url(chirp), method: :delete %>
+<ul>
+  <%= chirp.body %>
+  <% if action == :show %>
+    <li><%= link_to "Show Chirp Index", chirps_url%></li>
+  <% else %>
+    <li><%= link_to "Show Chirp Detail", chirp_url(chirp)%></li>
+  <% end %>
+  <li><%= link_to "Edit Chirp", edit_chirp_url(chirp)%></li>
+  <li><%= button_to "Delete Chirp", chirp_url(chirp), method: :delete %></li>
+</ul>

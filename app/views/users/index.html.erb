@@ -1,0 +1,4 @@
+<%= link_to "Create New User", new_user_url %>
+<% @users.each do |user| %>
+  <%= render "user", user: user, action: :index %>
+<% end %>

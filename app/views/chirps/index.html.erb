@@ -1,5 +1,5 @@
-<!-- <%# @chirps.each do |chirp| %>
-  <%#= render 'chirp', chirp: chirp %>
-<%# end %> -->
+<%= link_to "Create New Chirp", new_chirp_url %>
 
-<%= render @chirps %>
+<% @chirps.each do |chirp| %>
+  <%= render 'chirp', chirp: chirp, action: :index %>
+<% end %>

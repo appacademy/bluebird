@@ -1,0 +1,16 @@
+<% if action == :edit %>
+  <% action_url = user_url(user) %>
+<% else %>
+  <% action_url = users_url %>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+
+  <input type="text" name="user[username]" value="<%=user.username%>">
+  <input type="text" name="user[email]" value="<%=user.email%>">
+  
+  <input type="submit" value= "<%=action == :edit ? "Update User" : "Create User" %>">
+</form>

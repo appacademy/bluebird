@@ -1,0 +1,16 @@
+<% if action == :edit %>
+  <% action_url = chirp_url(chirp) %>
+<% else %>
+  <% action_url = chirps_url %>
+<% end %>
+
+<form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="PATCH">
+  <% end %>
+
+  <label for="body">Body</label>
+  <textarea id="body" name="chirp[body]" rows="8" cols="40"><%= chirp.body %></textarea>
+
+  <input type="submit" value= "<%=action == :edit ? "Update Chirp" : "Create Chirp" %>">
+</form>
