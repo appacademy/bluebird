@@ -1,0 +1,8 @@
+<form action="<%=chirp_url(@chirp)%>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label for="body">Body</label>
+  <textarea id="body" name="chirp[body]"> <%= @chirp.body  %>  </textarea>
+
+  <input type="submit" value="Update Chirp">
+</form>

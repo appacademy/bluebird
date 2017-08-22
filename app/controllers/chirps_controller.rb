@@ -1,5 +1,10 @@
 class ChirpsController < ApplicationController
 
+  def edit
+    @chirp = Chirp.find(params[:id])
+    render :edit
+  end
+
   def create
     @chirp = Chirp.new(chirp_params)
     if @chirp.save
@@ -12,7 +17,7 @@ class ChirpsController < ApplicationController
   def show
     @chirp = Chirp.find(params[:id])
     if @chirp
-      render json: @chirp
+      render :show
     else
       render json: @chirp.errors.full_messages, status: 404
     end
@@ -24,13 +29,13 @@ class ChirpsController < ApplicationController
               else
                 Chirp.all
               end
-    render json: @chirps
+    render :index
   end
 
   def update
     @chirp = Chirp.find(params[:id])
     if @chirp.update(chirp_params)
-      render json: @chirp
+      redirect_to chirp_url(@chirp)
     else
       render json: @chirp.errors.full_messages, status: 422
     end
@@ -39,7 +44,7 @@ class ChirpsController < ApplicationController
   def destroy
     @chirp = Chirp.find(params[:id])
     if @chirp.destroy
-      render json: @chirp
+      redirect_to chirps_url
     else
       render plain: "You can't destroy what's not there."
     end
