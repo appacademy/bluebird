@@ -24,6 +24,7 @@ class ChirpsController < ApplicationController
               else
                 Chirp.all
               end
+    render json: @chirps
   end
 
   def update
