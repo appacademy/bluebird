@@ -6,6 +6,5 @@
   <% else %>
     <%= link_to "Show User Detail", user_url(user)%>
   <% end %>
-  <%= link_to "Edit User", edit_user_url(user)%>
   <%= button_to "Delete User", user_url(user), method: :delete %>
 </ul>
