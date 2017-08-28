@@ -10,7 +10,7 @@
 #
 
 class Chirp < ApplicationRecord
-  validates :body, :author_id, presence: true
+  validates :body, presence: true
   validate :chirp_too_long
 
   has_many :likes,
