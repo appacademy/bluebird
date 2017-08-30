@@ -2,9 +2,11 @@
 #
 # Table name: users
 #
-#  id       :integer          not null, primary key
-#  username :string           not null
-#  email    :string
+#  id              :integer          not null, primary key
+#  username        :string           not null
+#  email           :string
+#  password_digest :string
+#  session_token   :string
 #
 
 class User < ApplicationRecord
@@ -32,6 +34,24 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :author_id,
     class_name: :Chirp
+
+  has_many :fanships,
+    primary_key: :id,
+    foreign_key: :followee_id,
+    class_name: :Follow
+
+  has_many :followships,
+    primary_key: :id,
+    foreign_key: :follower_id,
+    class_name: :Follow
+
+  has_many :followers,
+    through: :fanships,
+    source: :follower
+
+  has_many :followees,
+    through: :followships,
+    source: :followee
 
   # Class method for finding a user ONLY if we have the correct username and password
   def self.find_by_credentials(username, password)
