@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   end
 
   resource :session, only: [:new, :create, :destroy]
-  # get '/session/new', to: 'session#new'
-
 
   post '/search', to: 'users#search'
 
   resources :chirps
   resources :likes, only: [:create, :destroy]
+  resources :follows, only: [:create, :destroy]
 end
