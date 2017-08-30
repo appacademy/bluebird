@@ -7,6 +7,7 @@ class ChirpsController < ApplicationController
 
   def create
     @chirp = Chirp.new(chirp_params)
+    @chirp.author_id = current_user.id
     if @chirp.save
       redirect_to chirp_url(@chirp)
     else
