@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # This will be on the assessment
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
 
   # make these methods available from within the views
   helper_method :current_user, :logged_in?
