@@ -24042,6 +24042,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = (0, _redux.combineReducers)({
   session: _session2.default,
+  ui: uiReducer, // {loading: true}
   entities: _entities2.default
 });
 
@@ -25368,8 +25369,13 @@ exports.default = function (_ref) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.unLikeChirp = exports.likeChirp = exports.fetchChirps = exports.RECEIVE_SINGLE_CHIRP = exports.RECEIVE_CHIRPS = undefined;
+
+var _chirps = __webpack_require__(243);
+
 var RECEIVE_CHIRPS = exports.RECEIVE_CHIRPS = 'RECEIVE_CHIRPS';
 var RECEIVE_SINGLE_CHIRP = exports.RECEIVE_SINGLE_CHIRP = 'RECEIVE_SINGLE_CHIRP';
+
 
 var receiveChirps = function receiveChirps(chirps) {
   return {
@@ -25385,11 +25391,9 @@ var receiveSingleChirp = function receiveSingleChirp(chirp) {
   };
 };
 
-var getChirps = exports.getChirps = function getChirps() {
+var fetchChirps = exports.fetchChirps = function fetchChirps() {
   return function (dispatch) {
-    return $.ajax({
-      url: '/api/chirps'
-    }).then(function (chirps) {
+    return (0, _chirps.getChirps)().then(function (chirps) {
       return dispatch(receiveChirps(chirps));
     });
   };
@@ -25397,11 +25401,7 @@ var getChirps = exports.getChirps = function getChirps() {
 
 var likeChirp = exports.likeChirp = function likeChirp(id) {
   return function (dispatch) {
-    return $.ajax({
-      url: '/api/likes',
-      method: 'POST',
-      data: { id: id }
-    }).then(function (chirp) {
+    return (0, _chirps.postLikeToChirp)(id).then(function (chirp) {
       return dispatch(receiveSingleChirp(chirp));
     });
   };
@@ -25409,11 +25409,7 @@ var likeChirp = exports.likeChirp = function likeChirp(id) {
 
 var unLikeChirp = exports.unLikeChirp = function unLikeChirp(id) {
   return function (dispatch) {
-    return $.ajax({
-      url: '/api/likes',
-      method: 'DELETE',
-      data: { id: id }
-    }).then(function (chirp) {
+    return (0, _chirps.deleteLikeFromChirp)(id).then(function (chirp) {
       return dispatch(receiveSingleChirp(chirp));
     });
   };
@@ -25474,6 +25470,38 @@ exports.default = function () {
     default:
       return state;
   }
+};
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var getChirps = exports.getChirps = function getChirps() {
+  return $.ajax({
+    url: '/api/chirps'
+  });
+};
+
+var postLikeToChirp = exports.postLikeToChirp = function postLikeToChirp(id) {
+  return $.ajax({
+    url: '/api/likes',
+    method: 'POST',
+    data: { id: id }
+  });
+};
+
+var deleteLikeFromChirp = exports.deleteLikeFromChirp = function deleteLikeFromChirp(id) {
+  return $.ajax({
+    url: '/api/likes',
+    method: 'DELETE',
+    data: { id: id }
+  });
 };
 
 /***/ })
