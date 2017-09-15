@@ -14,6 +14,42 @@
  *= require_self
  */
 
+ html, body, div {
+   padding: 0;
+   margin: 0;
+   font-family: sans-serif;
+ }
+
+ .hero-img-frame {
+   position: absolute;
+   width: 100%;
+   max-height: 500px;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: -1;
+ }
+
+ .hero-img {
+   width: 100%;
+ }
+
+ .home {
+   min-height: 400px;
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   h1 {
+    height: 100%;
+    z-index: 1;
+    color: white;
+    text-shadow: 1px 1px 15px black;
+    text-align: center;
+    width: 100%;
+   }
+ }
+
  .nav-bar {
    display: flex;
    justify-content: space-between;

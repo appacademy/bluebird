@@ -7,7 +7,12 @@ const display = currentUser ? (
       <h3>Welcome {currentUser.username}!</h3>
       <button onClick={logout}>Logout</button>
     </div>
-  ) : (<Link className="btn" to="/signup">Sign Up</Link>);
+  ) : (
+    <div>
+      <Link className="btn" to="/signup">Sign Up</Link>
+      <Link className="btn" to="/login">Log In</Link>
+    </div>
+  );
   return (
     <header className="nav-bar">
       <h1 className="logo">BLUEBIRD</h1>
