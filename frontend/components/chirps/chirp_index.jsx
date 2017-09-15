@@ -6,11 +6,14 @@ class ChirpIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchChirps();
+  }
+
   render() {
     const { chirps } = this.props;
     return (
       <div>
-        <button onClick={this.props.getChirps}>Get Chirps</button>
         <ul>
           {
             chirps.map(chirp => (

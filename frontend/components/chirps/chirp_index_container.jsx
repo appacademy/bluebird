@@ -1,6 +1,6 @@
 import React from 'react';
 import ChirpIndex from './chirp_index';
-import { getChirps, likeChirp, unLikeChirp } from '../../actions/chirps';
+import { fetchChirps, likeChirp, unLikeChirp } from '../../actions/chirps';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getChirps: () => dispatch(getChirps()),
+  fetchChirps: () => dispatch(fetchChirps()),
   likeChirp: id => dispatch(likeChirp(id)),
   unLikeChirp: id => dispatch(unLikeChirp(id))
 });

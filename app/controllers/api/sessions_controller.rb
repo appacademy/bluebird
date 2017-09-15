@@ -16,7 +16,6 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     logout!
-    # redirect to login page
-    redirect_to new_session_url
+    render json: {message: 'Logout successful.'}
   end
 end
