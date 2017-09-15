@@ -5,7 +5,6 @@ class Login extends React.Component {
     super(props);
     this.state = {
       username: "",
-      email: "",
       password: "",
     };
 
@@ -31,20 +30,15 @@ class Login extends React.Component {
         <h2>Log In!</h2>
         <form>
           <label>Username:
-          <input
-            type="text"
+          <input type="text"
             value={this.state.username}
             onChange={this.handleInput('username')} /></label>
-          <label>Email: 
-          <input
-            type="text"
-            value={this.state.email}
-            onChange={this.handleInput('email')} /></label>
+
           <label>Password: 
-          <input
-            type="password"
+          <input type="password"
             value={this.state.password}
             onChange={this.handleInput('password')} />
+
           <button onClick={this.handleSubmit}>Log In!</button></label>
         </form>
       </div>

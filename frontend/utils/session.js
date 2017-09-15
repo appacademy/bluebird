@@ -6,6 +6,22 @@ export const postUser = (user) => {
   });
 };
 
+// const user = {
+//   id: 1,
+//   username: "",
+//   email: "",
+//   password: "password"
+// }
+
+// const data = {
+//   user: {
+//     id: 1,
+//     username: "",
+//     email: "",
+//     password: "password"
+//   }
+// }
+
 export const postSession = (user) => {
   return $.ajax({
     url: '/api/session',

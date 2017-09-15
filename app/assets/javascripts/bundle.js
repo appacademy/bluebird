@@ -7163,6 +7163,7 @@ exports.logout = exports.login = exports.createNewUser = exports.LOGOUT_CURRENT_
 var _session = __webpack_require__(238);
 
 var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
+
 var LOGOUT_CURRENT_USER = exports.LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 
 var receiveCurrentUser = function receiveCurrentUser(user) {
@@ -7171,6 +7172,12 @@ var receiveCurrentUser = function receiveCurrentUser(user) {
     user: user
   };
 };
+
+// const user = {
+//   id: 1,
+//   username: "",
+//   email: ""
+// }
 
 var logoutCurrentUser = function logoutCurrentUser() {
   return {
@@ -12851,6 +12858,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
   var store = (0, _store2.default)(preloadedState);
+  // const store = createStore();
 
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
@@ -25641,6 +25649,22 @@ var postUser = exports.postUser = function postUser(user) {
   });
 };
 
+// const user = {
+//   id: 1,
+//   username: "",
+//   email: "",
+//   password: "password"
+// }
+
+// const data = {
+//   user: {
+//     id: 1,
+//     username: "",
+//     email: "",
+//     password: "password"
+//   }
+// }
+
 var postSession = exports.postSession = function postSession(user) {
   return $.ajax({
     url: '/api/session',
@@ -29882,7 +29906,7 @@ var Protected = function Protected(_ref2) {
 };
 
 var AuthRoute = exports.AuthRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Auth));
-var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Protected));
+var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, undefined)(Protected));
 
 /***/ }),
 /* 290 */
@@ -29940,8 +29964,6 @@ var _session = __webpack_require__(61);
 var _signup = __webpack_require__(292);
 
 var _signup2 = _interopRequireDefault(_signup);
-
-var _reactRouterDom = __webpack_require__(29);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30150,7 +30172,6 @@ var Login = function (_React$Component) {
 
     _this.state = {
       username: "",
-      email: "",
       password: ""
     };
 
@@ -30196,26 +30217,15 @@ var Login = function (_React$Component) {
             "label",
             null,
             "Username:",
-            _react2.default.createElement("input", {
-              type: "text",
+            _react2.default.createElement("input", { type: "text",
               value: this.state.username,
               onChange: this.handleInput('username') })
           ),
           _react2.default.createElement(
             "label",
             null,
-            "Email:",
-            _react2.default.createElement("input", {
-              type: "text",
-              value: this.state.email,
-              onChange: this.handleInput('email') })
-          ),
-          _react2.default.createElement(
-            "label",
-            null,
             "Password:",
-            _react2.default.createElement("input", {
-              type: "password",
+            _react2.default.createElement("input", { type: "password",
               value: this.state.password,
               onChange: this.handleInput('password') }),
             _react2.default.createElement(
