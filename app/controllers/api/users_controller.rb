@@ -41,7 +41,7 @@ class Api::UsersController < ApplicationController
   private
   
   def selected_user
-    User.find_by(params[:id])
+    User.find(params[:id])
   end
   
   def user_params
